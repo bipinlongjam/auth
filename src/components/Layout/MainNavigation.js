@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import classes from './MainNavigation.module.css';
 import { useContext } from 'react';
@@ -12,28 +12,20 @@ const MainNavigation = () => {
 
   return (
     <header className={classes.header}>
-      <Link to='/'>
+      <NavLink to='/'>
         <div className={classes.logo}>React Auth</div>
-      </Link>
+      </NavLink>
       <nav>
         <ul>
-          <div>
           {!isLoggedIn && (
             <li>
-              <Link to='/auth'>Login</Link>
+              <NavLink to='/auth'>Login</NavLink>
             </li>
           )}
-          </div>
-       
           {isLoggedIn && (
-            <>
             <li>
-            <Link to='/profile'>Profile</Link>
+            <NavLink to='/profile'>Profile</NavLink>
             </li> 
-            <li>
-                <button>Logout</button>
-              </li>
-            </> 
           )}
         
          {isLoggedIn &&(
@@ -41,9 +33,6 @@ const MainNavigation = () => {
             <button>Logout</button>
           </li>
           )}
-         
-
-         
         </ul>
       </nav>
     </header>
